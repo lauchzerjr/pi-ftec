@@ -23,7 +23,7 @@
     "expo-status-bar": "~1.4.2",
     "lottie-ios": "3.2.3",
     "lottie-react-native": "5.1.4",
-    "native-base": "^3.4.22",
+    "native-base": "^3.4.28",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hook-form": "^7.39.4",
@@ -43,6 +43,7 @@
     "@types/react": "~18.0.24",
     "@types/react-native": "~0.70.6",
     "@types/styled-components-react-native": "^5.2.1",
+    "patch-package": "^8.0.0",
     "typescript": "^4.6.3"
   },
   "private": true
