@@ -69,7 +69,7 @@ export function FormCreateScheduling({ onClose }: FormCreateSchedulingProps) {
         nameLocation: data.nameLocation,
         location: data.location,
         date: `${data.date} às ${data.time}`,
-        maxPeople: data.maxPeople,
+        maxPeople: Number(data.maxPeople),
         city: data.city,
         created_at: firestore.FieldValue.serverTimestamp(),
         owner: user.displayName,
