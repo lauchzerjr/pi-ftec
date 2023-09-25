@@ -126,7 +126,7 @@ export function CardSport({
       .collection(nameCollection)
       .doc(docId)
       .onSnapshot((querySnapshot) => {
-        const data = querySnapshot.data().participating;
+        const data = querySnapshot?.data()?.participating;
 
         setParticipating(data);
       });
