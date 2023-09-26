@@ -14,7 +14,7 @@ export interface AuthContextDataProps {
   user: FirebaseAuthTypes.User | null;
   loading: boolean;
   loadingSplash: boolean;
-  signInWithGoogle: () => Promise<FirebaseAuthTypes.UserCredential>;
+  signInWithGoogle: () => Promise<FirebaseAuthTypes.User>;
   signOutGoogle: () => Promise<void>;
 };
 
@@ -43,10 +43,17 @@ function AuthContextProvider({ children }: AuthProviderProps) {
 
       const googleCredential = auth.GoogleAuthProvider.credential(idToken);
       
-      const data = await auth().signInWithCredential(googleCredential);
+      const userCredential = await auth().signInWithCredential(googleCredential);
+      const user = userCredential.user;
       setUser(user);
 
-      return data
+      if (user) {
+        setUser(user);
+        console.log("User com google ==>", user);
+        return user;
+      } else {
+        throw new Error('Erro ao fazer login com o Google. Tente novamente mais tarde.');
+      }
 
     } catch (error) {
       console.log("ERROR =>", error);
