@@ -21,32 +21,32 @@ O foco do projeto é criar um aplicativo que reúne entusiastas de esportes. Est
 
 # Para rodar o projeto
 
-## Clonar o projeto e entre na pasta
+## 1. Clonar o projeto e entrar na pasta
 
 ```
-  git clone branch_url
+  git clone https://github.com/lauchzerjr/pi-ftec.git
 ```
 
 ```
    cd pi-ftec
 ```
 
-## Instalar as dependências
+## 2. Instalar as dependências
 
 ```
   npm install ou yarn install
 ```
 
-## **Criar um projeto no console do [Firebase](https://console.firebase.google.com/)**
+## 3. **Criar um projeto no console do [Firebase](https://console.firebase.google.com/)**
 1. Criar um app android no Firebase
-  1.1 Adicionar autenticação com Google
-2. Criar um banco de dados com Firestore Database
-  2.2 Alterar regra de negócio do banco, senão não vai conseguir criar agendamentos
+2. Adicionar autenticação com Google
+3. Criar um banco de dados com Firestore Database
+4. Alterar regra de negócio do banco Firestore, senão não vai conseguir criar agendamentos
 ```
    allow read, write;
 ```
 
-## Criação das chaves SHA1 e SHA256
+## 4. Criação das chaves SHA1 e SHA256
 
 Entrar na pasta android/app
 ```
@@ -75,29 +75,29 @@ Copiar as chaves SHA1 e SHA256
   keytool -keystore firebase.keystore -list -v
 ```
 
-## **Adicionar chaves na configuração do projeto android no console do [Firebase](https://console.firebase.google.com/)**
+## 5. **Adicionar chaves na configuração do projeto android no console do [Firebase](https://console.firebase.google.com/)**
 
-## Baixar o arquivo google-services.json no console do [Firebase](https://console.firebase.google.com/)
+### 6. Baixar o arquivo google-services.json nas configurações de projeto do [Firebase](https://console.firebase.google.com/)
 
-Coloque o arquivo na pasta raiz do projeto e na pasta android/app
+### 7. Colocar o arquivo na pasta android/app
 
-## Entre no arquivo e copie o client_id
+## 8. Entrar no arquivo e copiar o client_id
 ```
   "oauth_client": [
         ...
         {
-          "client_id": "seu_client_id",
+          "client_id": "seu_client_id", // Copie o seu_client_id 
           "client_type": 3
         }
       ],
 ```
 
-## Renomeia o arquivo .env_example para .env e cola o seu client_id
+## 9. Renomear o arquivo .env_example para .env e colar o seu client_id
 ```
   WEB_CLIENT_ID=seu_client_id
 ```
 
-## rodar o projeto
+## 10. rodar o projeto
 ```
   yarn android
 ```
