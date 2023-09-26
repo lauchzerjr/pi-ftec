@@ -49,7 +49,6 @@ function AuthContextProvider({ children }: AuthProviderProps) {
 
       if (user) {
         setUser(user);
-        console.log("User com google ==>", user);
         return user;
       } else {
         throw new Error('Erro ao fazer login com o Google. Tente novamente mais tarde.');

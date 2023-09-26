@@ -13,8 +13,6 @@ export function Home() {
 
   function handleSportDetails(nameCollection: string, sportName: string) {
     navigate('sport', { nameCollection, sportName });
-    console.log('nameCollection =>', nameCollection)
-    console.log('sportName =>', sportName)
 
     setNameCollection(nameCollection)
   }

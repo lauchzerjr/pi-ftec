@@ -7,8 +7,6 @@ import { StackRoutes } from "./stack.routes";
 export const Routes = () => {
   const { user } = useAuth();
 
-  console.log('user', user)
-
   return(
     <NavigationContainer>
       {user ? <StackRoutes /> : <SignIn />}
