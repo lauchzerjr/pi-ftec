@@ -112,33 +112,27 @@ export function FormCreateScheduling({ onClose }: FormCreateSchedulingProps) {
         control={control}
         name="nameLocation"
         error={errors.nameLocation}
-        placeholder="Nome do local"
         inputLabel="Nome do local"
-        autoComplete="birthdate-full"
-        keyboardAppearance="dark"
-        isInvalid={!!errors.nameLocation}
+        placeholder="Nome do local"
+        // autoComplete="email"
+        // keyboardAppearance="dark"
         autoCorrect={false}
-        isError={errors.nameLocation}
       />
       <ControlledInput
         control={control}
         name="location"
-        placeholder="Nome da rua"
-        inputLabel="Endereço"
         error={errors.location}
-        isInvalid={!!errors.location}
+        inputLabel="Endereço"
+        placeholder="Nome da rua"
         autoCorrect={false}
-        isError={errors.location}
       />
       <ControlledInput
         control={control}
         name="city"
-        placeholder="Nome da cidade"
-        inputLabel="Cidade"
         error={errors.city}
-        isInvalid={!!errors.city}
+        inputLabel="Cidade"
+        placeholder="Nome da cidade"
         autoCorrect={false}
-        isError={errors.city}
       />
       <Divider bg="gray.400" thickness="1" my="1" orientation="horizontal" />
 
@@ -151,44 +145,38 @@ export function FormCreateScheduling({ onClose }: FormCreateSchedulingProps) {
           <ControlledInput
             control={control}
             name="maxPeople"
-            placeholder="26"
+            error={errors.maxPeople}
             inputLabel="N° de membros"
+            placeholder="26"
             keyboardType="numeric"
             maxLength={3}
-            error={errors.maxPeople}
-            isError={errors.maxPeople}
-            isInvalid={!!errors.maxPeople}
           />
         </VStack>
 
         <VStack  flex={1}  mr={1}>
           <ControlledInput
-            type="datetime"
-            maskInput
-            typeMask="DD/MM/YYYY"
             control={control}
             name="date"
-            placeholder="DD/MM/YYYY"
-            inputLabel="Data"
-            keyboardType="numeric"
             error={errors.date}
-            isError={errors.date}
-            isInvalid={!!errors.date}
+            inputLabel="Data"
+            mask
+            type="datetime"
+            options={{ format: 'DD/MM/YYYY' }}
+            placeholder="DD/MM/YYYY"
+            keyboardType="numeric"
           />
         </VStack>
         <VStack flex={1}>
           <ControlledInput
-            type="datetime"
-            maskInput
-            typeMask="HH:mm"
             control={control}
             name="time"
-            placeholder="HH:MM"
-            inputLabel="Hora"
-            keyboardType="numeric"
             error={errors.time}
-            isError={errors.time}
-            isInvalid={!!errors.time}
+            inputLabel="Hora"
+            mask
+            type="datetime"
+            options={{ format: 'HH:mm' }}
+            placeholder="HH:MM"
+            keyboardType="numeric"
           />
         </VStack>
       </HStack>

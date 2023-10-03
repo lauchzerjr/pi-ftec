@@ -7,23 +7,20 @@ type Props = CInputProps & {
   control: Control<any>;
   name: string;
   error?: FieldError;
-  maskInput?: boolean;
-  typeMask?: string;
 };
 
-export function ControlledInput({ control, name, error, maskInput, typeMask, ...rest }: Props) {
+export function ControlledInput({ control, name, error, ...rest }: Props) {
   return (
     <>
       <Controller
         name={name}
         control={control}
         render={({ field: { onChange, value } }) => (
-          <CInput 
-            options={{ format: typeMask }} 
+          <CInput
             onChangeText={onChange} 
             value={value} 
-            mask={maskInput}
             isFilledValue={!!value}
+            isError={error}
             {...rest} 
           />
         )}

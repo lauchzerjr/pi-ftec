@@ -4,28 +4,25 @@ import { TextInputMaskProps } from "react-native-masked-text";
 import { TextInputProps } from 'react-native';
 import { FieldError } from 'react-hook-form';
 
-interface CommonInputProps {
-  errorMessage?: string | null;
-  isInvalid?: boolean;
-  isFilledValue?: boolean;
+
+interface CommonProps {
   inputLabel?: string;
+  isFilledValue?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   isError?: FieldError;
   mask?: boolean;
 }
 
-export type CInputProps = (TextInputProps & CommonInputProps) | (TextInputMaskProps & CommonInputProps);
+export type CInputProps = CommonProps & (TextInputMaskProps | TextInputProps);
 
 export function CInput({
-  errorMessage,
-  isInvalid,
   inputLabel,
+  isFilledValue,
   leftIcon,
   rightIcon,
   isError,
   mask,
-  isFilledValue,
   ...rest
 }: CInputProps) {
   const [isFocused, setIsFocused] = React.useState(false);
@@ -53,7 +50,7 @@ export function CInput({
               onBlur={handleBlur}
               placeholderTextColor={'gray'}
               cursorColor={"black"}
-              {...rest}
+              {...rest as TextInputMaskProps}
             />
           )
           : (
@@ -62,7 +59,7 @@ export function CInput({
               onBlur={handleBlur}
               placeholderTextColor={'gray'}
               cursorColor={"black"}
-              {...rest}
+              {...rest as TextInputProps}
             />
           )
         }
